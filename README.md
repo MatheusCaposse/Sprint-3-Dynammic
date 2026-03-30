@@ -1,4 +1,4 @@
-# CRM Hospital São Rafael - Sprint 3 (Dynamic Programming)
+CRM Hospital São Rafael - Sprint 3 (Dynamic Programming)
 
 ## Descrição do Projeto
 
@@ -68,6 +68,7 @@ O sistema simula:
 
 1. Instale o Python (caso não tenha)
 2. Clone o repositório
+3. Rode o codigo em uma IDE
 
 ## Integrantes
 
