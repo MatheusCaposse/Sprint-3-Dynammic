@@ -1,6 +1,6 @@
 # CRM Hospital São Rafael - Sprint 3 (Dynamic Programming)
 
-# Descrição do Projeto
+#@ Descrição do Projeto
 
 Este projeto faz parte do desenvolvimento de um sistema CRM hospitalar, com foco na aplicação de técnicas de **Programação Dinâmica**, incluindo **recursão**, **memoização** e **resolução de subproblemas**.
 
@@ -15,7 +15,6 @@ Modelar e implementar soluções eficientes para:
 - Evitar processamento repetido
 - Otimizar o uso de horários disponíveis
 
----
 
 ## Funcionalidades
 
@@ -27,17 +26,14 @@ Função que percorre uma lista de leads e verifica se um novo cadastro já exis
 - Telefone
 - Email
 
----
 
 ###  2. Memoização (Otimização)
 Utilização de cache para evitar repetir comparações já realizadas, melhorando a performance do sistema.
 
----
 
 ### 3. Otimização de Agenda (Subproblemas)
 Algoritmo que encontra a melhor combinação de horários disponíveis para consultas, evitando conflitos e maximizando o número de atendimentos.
 
----
 
 ## Conceitos Utilizados
 
@@ -46,7 +42,6 @@ Algoritmo que encontra a melhor combinação de horários disponíveis para cons
 - Programação Dinâmica
 - Divisão em Subproblemas
 
----
 
 ## Exemplo de Execução
 
@@ -57,7 +52,6 @@ O sistema simula:
 - Verificação de duplicidade
 - Organização de horários disponíveis
 
----
 
 ## Estrutura do Projeto
 
