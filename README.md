@@ -1,4 +1,4 @@
-CRM Hospital São Rafael - Sprint 3 (Dynamic Programming)
+# CRM Hospital São Rafael - Sprint 3 (Dynamic Programming)
 
 ## Descrição do Projeto
 
@@ -6,7 +6,6 @@ Este projeto faz parte do desenvolvimento de um sistema CRM hospitalar, com foco
 
 O objetivo é otimizar processos internos do sistema, como verificação de duplicidade de cadastros e organização de horários de atendimento.
 
----
 
 ## Objetivo
 
