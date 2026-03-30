@@ -65,7 +65,7 @@ O sistema simula:
 
 ## Integrantes
 
-Matheus Machado Caposse
-Caio Berardo
-Vitor de Lima
-Giovanni
+- Matheus Machado Caposse
+- Caio Berardo
+- Vitor de Lima
+- Giovanni
