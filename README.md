@@ -97,7 +97,7 @@ Dessa forma, o algoritmo de Dijkstra permite identificar automaticamente o fluxo
 
 ## Clonar o repositório
 
-git clone SEU_LINK_DO_GITHUB
+git clone https://github.com/MatheusCaposse/Sprint-3-Dynammic.git
 
 ---
 
@@ -111,12 +111,14 @@ python main.py
 
 Sprint4/
 │
-├── main.py
+├── sprint.py
 ├── README.md
-└── requirements.txt
 
 ---
 
-# Autor
+# Grupo
 
-Projeto desenvolvido para a Sprint 4 da disciplina de Estrutura de Dados e Algoritmos.
+Matheus Machado Caposse
+Caio Berardo
+Vitor de Lima
+Giovanni
