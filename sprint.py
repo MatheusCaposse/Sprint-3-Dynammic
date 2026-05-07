@@ -1,118 +1,77 @@
-# ================================
-# Sprint 3 - Dynamic Programming
-# ================================
+import heapq
 
-# -------------------------------
-# 1. RECURSÃO - Verificar duplicidade
-# -------------------------------
+grafo = {
+    "Lead": {
+        "Cadastro": 2,
+        "Contato": 5
+    },
 
-def verificar_duplicado(leads, novo_lead, index=0):
-    if index >= len(leads):
-        return False
+    "Cadastro": {
+        "Triagem": 2
+    },
 
-    atual = leads[index]
+    "Contato": {
+        "Consulta": 4
+    },
 
-    if (
-        atual["nome"] == novo_lead["nome"] or
-        atual["cpf"] == novo_lead["cpf"] or
-        atual["telefone"] == novo_lead["telefone"] or
-        atual["email"] == novo_lead["email"]
-    ):
-        return True
+    "Triagem": {
+        "Consulta": 1
+    },
 
-    return verificar_duplicado(leads, novo_lead, index + 1)
+    "Consulta": {
+        "Confirmacao": 3
+    },
 
-
-# -------------------------------
-# 2. MEMOIZAÇÃO - Evitar repetição
-# -------------------------------
-
-def verificar_duplicado_memo(leads, novo_lead, index=0, memo=None):
-    if memo is None:
-        memo = {}
-
-    chave = (index, novo_lead["cpf"])
-
-    if chave in memo:
-        return memo[chave]
-
-    if index >= len(leads):
-        return False
-
-    atual = leads[index]
-
-    if atual["cpf"] == novo_lead["cpf"]:
-        memo[chave] = True
-        return True
-
-    resultado = verificar_duplicado_memo(leads, novo_lead, index + 1, memo)
-    memo[chave] = resultado
-    return resultado
+    "Confirmacao": {}
+}
 
 
-# -------------------------------
-# 3. SUBPROBLEMAS - Otimização de agenda
-# -------------------------------
+def dijkstra(grafo, inicio, fim):
 
-def melhor_agenda(intervalos, index=0, memo=None):
-    if memo is None:
-        memo = {}
+    fila = [(0, inicio)]
 
-    if index >= len(intervalos):
-        return 0
+    distancias = {
+        no: float('inf') for no in grafo
+    }
 
-    if index in memo:
-        return memo[index]
+    distancias[inicio] = 0
 
-    # opção 1: pular horário
-    pular = melhor_agenda(intervalos, index + 1, memo)
+    caminhos = {
+        inicio: []
+    }
 
-    # opção 2: pegar horário atual
-    proximo = index + 1
-    while proximo < len(intervalos) and intervalos[proximo][0] < intervalos[index][1]:
-        proximo += 1
+    while fila:
 
-    pegar = 1 + melhor_agenda(intervalos, proximo, memo)
+        custo_atual, no_atual = heapq.heappop(fila)
 
-    memo[index] = max(pegar, pular)
-    return memo[index]
+        if no_atual == fim:
+            return caminhos[no_atual] + [fim], custo_atual
 
+        for vizinho, peso in grafo[no_atual].items():
 
-# -------------------------------
-# TESTES 
-# -------------------------------
+            novo_custo = custo_atual + peso
+
+            if novo_custo < distancias[vizinho]:
+
+                distancias[vizinho] = novo_custo
+
+                caminhos[vizinho] = caminhos[no_atual] + [no_atual]
+
+                heapq.heappush(fila, (novo_custo, vizinho))
+
+    return None
+
 
 if __name__ == "__main__":
 
-    # Base de leads
-    leads = [
-        {"nome": "João", "cpf": "123", "telefone": "111", "email": "joao@email.com"},
-        {"nome": "Maria", "cpf": "456", "telefone": "222", "email": "maria@email.com"},
-        {"nome": "Carlos", "cpf": "789", "telefone": "333", "email": "carlos@email.com"},
-    ]
+    caminho, custo = dijkstra(
+        grafo,
+        "Lead",
+        "Confirmacao"
+    )
 
-    # Novo lead
-    novo_lead = {
-        "nome": "João",
-        "cpf": "999",
-        "telefone": "444",
-        "email": "novo@email.com"
-    }
+    print("Menor caminho encontrado:")
+    print(" -> ".join(caminho))
 
-    print("=== Verificacao Recursiva ===")
-    print("Duplicado?", verificar_duplicado(leads, novo_lead))
-
-    print("\n=== Verificacao com Memoizacao ===")
-    print("Duplicado?", verificar_duplicado_memo(leads, novo_lead))
-
-    # Intervalos de horários (inicio, fim)
-    agenda = [
-        (8, 9),
-        (9, 10),
-        (9, 11),
-        (10, 12),
-        (11, 13)
-    ]
-
-    print("\n=== Melhor encaixe de horarios ===")
-    print("Maximo de consultas possiveis:", melhor_agenda(agenda))
+    print("\nCusto total:")
+    print(custo)
