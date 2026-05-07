@@ -28,29 +28,47 @@ O fluxo do CRM foi representado através de um grafo direcionado, onde:
 ## Fluxo do Sistema
 
 Lead
+
 ├── Cadastro
+
 ├── Atendimento WhatsApp
+
 └── Atendimento Emergencial
 
+
 Cadastro
+
 ├── Validacao Convenio
+
 └── Triagem
+
 
 Validacao Convenio
+
 └── Triagem
 
+
 Triagem
+
 ├── Consulta Clinica
+
 └── Consulta Pediatrica
 
+
 Consulta Clinica
+
 └── Pagamento
+
 
 Consulta Pediatrica
+
 └── Pagamento
 
+
 Pagamento
+
 └── Confirmacao
+
 
 ---
 
@@ -110,15 +128,18 @@ python main.py
 # Estrutura do Projeto
 
 Sprint4/
+
 │
+
 ├── sprint.py
+
 ├── README.md
 
 ---
 
 # Grupo
 
-Matheus Machado Caposse
-Caio Berardo
-Vitor de Lima
-Giovanni
+- Matheus Machado Caposse 560340
+- Caio Berardo
+- Vitor de Lima 561008
+- Giovanni 560434
