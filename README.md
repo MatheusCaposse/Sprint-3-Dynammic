@@ -52,7 +52,7 @@ Triagem
 
 ├── Consulta Clinica
 
-└── Consulta Pediatrica
+└── Consulta Estetica
 
 
 Consulta Clinica
@@ -60,7 +60,7 @@ Consulta Clinica
 └── Pagamento
 
 
-Consulta Pediatrica
+Consulta Estetica
 
 └── Pagamento
 
@@ -68,7 +68,6 @@ Consulta Pediatrica
 Pagamento
 
 └── Confirmacao
-
 
 ---
 
@@ -115,13 +114,13 @@ Dessa forma, o algoritmo de Dijkstra permite identificar automaticamente o fluxo
 
 ## Clonar o repositório
 
-git clone https://github.com/MatheusCaposse/Sprint-3-Dynammic.git
+git clone 
 
 ---
 
 ## Executar o projeto
 
-python main.py
+python sprint.py
 
 ---
 
@@ -139,7 +138,7 @@ Sprint4/
 
 # Grupo
 
-- Matheus Machado Caposse 
+- Matheus Machado Caposse
 - Caio Berardo
-- Vitor de Lima 
-- Giovanni 
+- Vitor de Lima
+- Giovanni
