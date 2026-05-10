@@ -37,14 +37,14 @@ grafo = {
 
     "Triagem": {
         "Consulta Clinica": 3,
-        "Consulta Pediatrica": 4
+        "Consulta Estetica": 4
     },
 
     "Consulta Clinica": {
         "Pagamento": 2
     },
 
-    "Consulta Pediatrica": {
+    "Consulta Estetica": {
         "Pagamento": 3
     },
 
@@ -63,40 +63,31 @@ grafo = {
 
 def dijkstra(grafo, inicio, fim):
 
-    # Fila de prioridade
     fila = [(0, inicio)]
 
-    # Armazena as menores distâncias
     distancias = {
         no: float('inf') for no in grafo
     }
 
-    # Nó inicial começa com custo 0
     distancias[inicio] = 0
 
-    # Armazena o caminho percorrido
     predecessores = {}
 
-    # Nós já visitados
     visitados = set()
 
     while fila:
 
-        # Remove o nó com menor custo
         custo_atual, no_atual = heapq.heappop(fila)
 
-        # Evita processamento repetido
         if no_atual in visitados:
             continue
 
         visitados.add(no_atual)
 
-        # Percorre os vizinhos do nó atual
         for vizinho, peso in grafo[no_atual].items():
 
             novo_custo = custo_atual + peso
 
-            # Atualiza se encontrar caminho menor
             if novo_custo < distancias[vizinho]:
 
                 distancias[vizinho] = novo_custo
@@ -104,10 +95,6 @@ def dijkstra(grafo, inicio, fim):
                 predecessores[vizinho] = no_atual
 
                 heapq.heappush(fila, (novo_custo, vizinho))
-
-    # --------------------------------------------------
-    # Reconstrução do caminho
-    # --------------------------------------------------
 
     caminho = []
 
@@ -146,10 +133,6 @@ if __name__ == "__main__":
 
     print(f"\nCusto total do fluxo: {custo}")
 
-    # --------------------------------------------------
-    # Exibição das distâncias mínimas
-    # --------------------------------------------------
-
     print("\n" + "=" * 60)
     print(" DISTANCIAS MINIMAS A PARTIR DO LEAD ")
     print("=" * 60)
@@ -157,10 +140,6 @@ if __name__ == "__main__":
     for no, distancia in distancias.items():
 
         print(f"{no}: {distancia}")
-
-    # --------------------------------------------------
-    # Interpretação do resultado
-    # --------------------------------------------------
 
     print("\n\n\n\n" + "=" * 60)
     print(" INTERPRETACAO DO RESULTADO ")
